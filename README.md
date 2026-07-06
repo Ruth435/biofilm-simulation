@@ -85,240 +85,241 @@ scenario are: maxAgents, Motility, and the ElasticModuluses. Others can be chang
 testing purposes when using the program too. 
 Here is the format, and an example (This is also in the files with the code): 
 
-**Format:**  
+### **Format:**<br>
 (the words before a ‘#’ are the names for the values, the words after a ‘#’ are comments about 
 sections of parameters or whether the number is an integer or float, and what the number 
 represents. Note that sometimes the comments are too long for this document and flow onto 
-the next line) 
-origin_x, origin_y #int, int: starting position of the first bacterium (recommended: 0, 0) 
-#simulation values 
-max_agents #int: max number of particles – the simulation stops once this is reached 
-(recommended: 10000 - 100000) 
-output_interval #int: how often (in in-simulation hours) output is sent to the output file 
-(recommended: 0.1) 
+the next line) <br>
+origin_x, origin_y #int, int: starting position of the first bacterium (recommended: 0, 0) <br>
+#simulation values <br>
+max_agents #int: max number of particles – the simulation stops once this is reached
+(recommended: 10000 - 100000) <br>
+output_interval #int: how often (in in-simulation hours) output is sent to the output file
+(recommended: 0.1) <br>
  
-#medium values 
+#medium values <br>
 simulation_boundary #int, distance from (0;0) to the edge of the simulation grid – make 
-this big enough that no particle reaches the edge ideally (recommended: 100-1000) 
-initial_nutrient_concentration #float, starting nutrients per um^2. (recommended: ~10) 
-consumption_rate #float, rate that a bacteria consumes nutrients (recommended: ~4) 
+this big enough that no particle reaches the edge ideally (recommended: 100-1000) <br>
+initial_nutrient_concentration #float, starting nutrients per um^2. (recommended: ~10) <br>
+consumption_rate #float, rate that a bacteria consumes nutrients (recommended: ~4) <br>
 diffusion_rate #float, rate that nutrients diffuse to nearby gridsquares (recommended: 
-~300) 
+~300) <br>
  
-#EPS values 
-EPS_size #float, diameter of EPS in um (recommended: 0.5 - 1) 
+#EPS values <br>
+EPS_size #float, diameter of EPS in um (recommended: 0.5 - 1) <br>
 EPS_EPS_Elastic_Modulus #float, constant that increases repulsive forces between 2 EPS, 
-in Pa (recommended: 20000 - 70000) 
+in Pa (recommended: 20000 - 70000) <br>
  
-#bacteria values 
-bacteria_lmax #float, maximum length of a bacterial cell in um (recommended: 5) 
-bacteria_diameter #float, diameter of bacteria in um (recommended: 1) 
-bacteria_motility #float, motility force of bacteria in Pa*um^2 (recommended: 0 - 1100) 
-bacteria_growth_rate #float, bacteria growth rate in um/hr (recommended: ~3.5) 
+#bacteria values <br>
+bacteria_lmax #float, maximum length of a bacterial cell in um (recommended: 5) <br>
+bacteria_diameter #float, diameter of bacteria in um (recommended: 1) <br>
+bacteria_motility #float, motility force of bacteria in Pa*um^2 (recommended: 0 - 1100) <br>
+bacteria_growth_rate #float, bacteria growth rate in um/hr (recommended: ~3.5) <br>
 bacteria_reproduction_rate #float, bacteria reproduction rate, in bacteria/hr (recommended: 
-1) 
-bacteria_EPS_production_rate #float, EPS production rate, in EPS/hr (recommended: 1) 
+1) <br>
+bacteria_EPS_production_rate #float, EPS production rate, in EPS/hr (recommended: 1) <br>
 Bacteria_EPS_Elastic_Modulus #float, constant that increases repulsive forces between an 
-EPS and a Bacteria, in Pa (recommended: 20000 - 70000) 
+EPS and a Bacteria, in Pa (recommended: 20000 - 70000) <br>
  
 Bacteria_Bacteria_Elastic_Modulus #float, constant that increases repulsive forces 
-between 2 Bacteria, in Pa (recommended: 20000 - 70000) 
-Friction #float, constant that decreases all movement (recommended: 200) 
+between 2 Bacteria, in Pa (recommended: 20000 - 70000) <br>
+Friction #float, constant that decreases all movement (recommended: 200) <br>
 EPS_Production_Min_Cell_Density #minimum bacteria density required to produce EPS, 
-in um^2 of bacteria/um^2 (recommended: 5) 
+in um^2 of bacteria/um^2 (recommended: 5) <br>
 EPS_Production_Max_EPS_Density #maximum eps density before bacteria stop 
-producing eps, in um^2 of eps/um^2 (recommended: 0.3)
+producing eps, in um^2 of eps/um^2 (recommended: 0.3) <br>
  
-**Example:** 
-0, 0 
+**Example:** <br>
+0, 0 <br>
  
-1000 
-0.1 
+1000 <br>
+0.1 <br>
  
-500 
-10 
-4 
-300 
+500 <br>
+10 <br>
+4 <br>
+300 <br>
  
-0.5 
-40000 
-5 
-1 
-100 
-3.5 
-1 
-1 
-40000 
-70000 
-200 
-5 
-0.3 
+0.5 <br>
+40000 <br>
+5 <br>
+1 <br>
+100 <br>
+3.5 <br>
+1 <br>
+1 <br>
+40000 <br>
+70000 <br>
+200 <br>
+5 <br>
+0.3 <br>
 
-## **Using the graphing module** 
+## **Using the graphing module** <br>
 The graphing module allows the user to input the names of multiple simulation output files 
 and reproduces figure from the paper using these files. Similarly to the simulation module, 
-there are 3 ways to run the simulation: - - - 
+there are 3 ways to run the simulation: <br>
 Makefile (recommended): run “make all” to compile all files, then use the command “make 
-graphing” to start the Graphing Module. 
-Command Line: python3 GraphingModule.py 
+graphing” to start the Graphing Module. <br>
+Command Line: python3 GraphingModule.py <br>
 IDE (not recommended): run GraphingModule.py in your IDE terminal, ensuring that the 
 terminal is in the “biofilm-main” directory. If your desired input files are in the same 
-directory, the file will run as with the makefile. 
+directory, the file will run as with the makefile. <br>
 After starting the graphing module, you are given the option to upload your files by manually typing 
 the file names into a text box, or by browsing through and selecting files from your file browser. After 
 the files have been selected, pressing “Load Simulations” button will read in the data from each file. 
-After this, you are able to select from five possible graphical outputs. 
+After this, you are able to select from five possible graphical outputs. <br>
 The input files are the files generated by the simulation module, and take on the same format as 
 specified above. Note that the graphing module works best with multiple simulation output files 
-where various parameters in the config file have been changed. 
+where various parameters in the config file have been changed. <br>
 
 
-## **Using the visualization module** 
+## **Using the visualization module** <br>
 The visualization is the section of the program which allows users to view the results of a 
 given simulation. This provides a visual depiction of the simulated growth of the bacterial 
 colony, as generated in the simulation module. When run, it allows the user to adjust several 
 parameters which allow the user to view the simulation as they desire, to highlight key 
-aspects of the simulation if needed. 
+aspects of the simulation if needed. <br>
 To run the visualization, you need a configuration file in the same format as is produced by 
 the Simulation module. A sample file: “SimulationOutput.txt” is given. 
-There are 3 ways to run the visualization: - 
+There are 3 ways to run the visualization: <br>
 Makefile (recommended method): run ‘make all’ to compile all files, then 
 Use the command “make visualization” which will start the module and direct you to 
-the options menu - Command line - IDE: If you open the visualization in your IDE, make sure your terminal is in the 
+the options menu. <br>
+Command line <br>
+IDE: If you open the visualization in your IDE, make sure your terminal is in the 
 ‘biofilm-main’ directory. Then you can run the main method of Visualization.java, and 
 it will run as with the Makefile, giving a list of settings to adjust before viewing the 
-simulation results. 
+simulation results. <br>
  
-Here is the format, and an example: 
-**Format:** 
-#simulation values 
-max_agents #int: max number of particles – the simulation stops once this is reached 
-output_interval #int: how often (in in-simulation hours) output is sent to the output file 
+### **Format:** <br>
+#simulation values <br>
+max_agents #int: max number of particles – the simulation stops once this is reached <br>
+output_interval #int: how often (in in-simulation hours) output is sent to the output file <br>
  
-#EPS values 
-EPS_size #float, diameter of EPS in um 
+#EPS values <br>
+EPS_size #float, diameter of EPS in um <br>
 EPS_EPS_Elastic_Modulus #float, constant that increases repulsive forces between 2 EPS, 
-in Pa 
+in Pa <br>
  
-#bacteria values 
-bacteria_lmax #float, maximum length of a bacterial cell in um 
-bacteria_diameter #float, diameter of bacteria in um 
-bacteria_motility #float, motility force of bacteria in Pa*um^2 
-bacteria_growth_rate #float, bacteria growth rate in um/hr 
-bacteria_reproduction_rate #float, bacteria reproduction rate, in bacteria/hr 
-bacteria_EPS_production_rate #float, EPS production rate, in EPS/hr 
+#bacteria values <br>
+bacteria_lmax #float, maximum length of a bacterial cell in um <br>
+bacteria_diameter #float, diameter of bacteria in um <br>
+bacteria_motility #float, motility force of bacteria in Pa*um^2 <br>
+bacteria_growth_rate #float, bacteria growth rate in um/hr <br>
+bacteria_reproduction_rate #float, bacteria reproduction rate, in bacteria/hr <br>
+bacteria_EPS_production_rate #float, EPS production rate, in EPS/hr <br>
 Bacteria_EPS_Elastic_Modulus #float, constant that increases repulsive forces between an 
-EPS and a Bacteria, in Pa 
+EPS and a Bacteria, in Pa <br>
 Bacteria_Bacteria_Elastic_Modulus #float, constant that increases repulsive forces 
-between 2 Bacteria, in Pa 
-Friction #float, constant that decreases all movement 
+between 2 Bacteria, in Pa <br>
+Friction #float, constant that decreases all movement <br>
 EPS_Production_Min_Cell_Density #minimum bacteria density required to produce EPS, 
-in bacteria/um^2 
+in bacteria/um^2 <br>
 EPS_Production_Max_EPS_Density #maximum eps density before bacteria stop 
-producing eps, in eps/um^2 
+producing eps, in eps/um^2 <br>
  
-#medium values 
+#medium values <br>
 simulation_boundary #int, distance from (0;0) to the edge of the simulation grid – make 
-this big enough that no particle reaches the edge ideally 
-initial_nutrient_concentration #float, starting nutrients per um^2. 
-consumption_rate #float, rate that a bacteria consumes nutrients 
-diffusion_rate #float, rate that nutrients diffuse to nearby gridsquares 
+this big enough that no particle reaches the edge ideally <br>
+initial_nutrient_concentration #float, starting nutrients per um^2. <br>
+consumption_rate #float, rate that a bacteria consumes nutrients <br>
+diffusion_rate #float, rate that nutrients diffuse to nearby gridsquares <br>
  
-#Output at each time point 
-time_point #int, the current time point for which the following data applies 
-ticks_since_start #int the time in ticks (360*simulation hours) since the simulation began 
-colony_centreX, colony_centreY #int, int  
-colony_diameter #float  
-roughness #float 
-sparseness #float 
-Bacteria: #Title to indicate the start of the Bacteria details and to increase readability 
+#Output at each time point <br>
+time_point #int, the current time point for which the following data applies <br>
+ticks_since_start #int the time in ticks (360*simulation hours) since the simulation began <br>
+colony_centreX, colony_centreY #int, int  <br>
+colony_diameter #float  <br>
+roughness #float <br>
+sparseness #float <br>
+Bacteria: #Title to indicate the start of the Bacteria details and to increase readability <br>
 ID, x, y, xFacing, yFacing, length, clusterNumber #For each bacterium (int, int, int, float, 
-float, float, int) 
-EPS: #Title to indicate the start of the EPS details 
-ID, x, y, clusterNumber #For each eps (int, int, int, int) 
-Bacterial Clusters: #Title to indicate the start of the Bacteria cluster details 
-ID, numberOfParticles #For each cluster (int, int) 
-EPS Clusters: #Title to indicate the start of the EPS cluster details 
-ID, numberOfParticles #For each cluster (int, int) 
+float, float, int) <br>
+EPS: #Title to indicate the start of the EPS details <br>
+ID, x, y, clusterNumber #For each eps (int, int, int, int) <br>
+Bacterial Clusters: #Title to indicate the start of the Bacteria cluster details <br>
+ID, numberOfParticles #For each cluster (int, int) <br>
+EPS Clusters: #Title to indicate the start of the EPS cluster details <br>
+ID, numberOfParticles #For each cluster (int, int) <br>
  
-**Example:** 
-10000 
-0.1 
+### **Example:** <br>
+10000 <br>
+0.1 <br>
  
-200 
-3.0 
-4.0 
-300.0 
+200 <br>
+3.0 <br>
+4.0 <br>
+300.0 <br>
  
-0.5 
-40000.0 
+0.5 <br>
+40000.0 <br>
  
-5.0 
-1.0 
-500.0 
-3.5 
-1.0 
-360.0 
-40000.0 
-70000.0 
-200.0 
-5.0 
-0.3 
+5.0 <br>
+1.0 <br>
+500.0 <br>
+3.5 <br>
+1.0 <br>
+360.0 <br>
+40000.0 <br>
+70000.0 <br>
+200.0 <br>
+5.0 <br>
+0.3 <br>
  
-0 
-0 
-0.0, 0.0 
-1.0 
-0.0 
-0.0 
-Bacteria: 
-0, 0, 0, -0.6628665521644692, 0.7487375601781903, 1.0, 0 
-EPS: 
-Bacterial Clusters: 
-0, 1 
-EPS Clusters: 
+0 <br>
+0 <br>
+0.0, 0.0 <br>
+1.0 <br>
+0.0 <br>
+0.0 <br>
+Bacteria: <br>
+0, 0, 0, -0.6628665521644692, 0.7487375601781903, 1.0, 0 <br>
+EPS: <br>
+Bacterial Clusters: <br>
+0, 1 <br>
+EPS Clusters: <br>
  
-1 
-36 -2.0, 2.0 
-4.444131728146501 
-0.0 
-0.0 
-Bacteria: 
-0, -2, 2, -0.6628665521644692, 0.7487375601781903, 4.444131728146501, 0 
-EPS: 
-0, 0, 0, 0 
-Bacterial Clusters: 
-0, 1 
-EPS Clusters: 
-0, 1 
+1 <br>
+36 -2.0, 2.0 <br>
+4.444131728146501 <br>
+0.0 <br>
+0.0 <br>
+Bacteria: <br>
+0, -2, 2, -0.6628665521644692, 0.7487375601781903, 4.444131728146501, 0 <br>
+EPS: <br>
+0, 0, 0, 0 <br>
+Bacterial Clusters: <br>
+0, 1 <br>
+EPS Clusters: <br>
+0, 1 <br>
  
-2 
-72 -3.0, 3.0 
-7.594131728146498 
-0.0 
-0.0 
-Bacteria: 
-0, -3, 3, -0.6628665521644692, 0.7487375601781903, 7.594131728146498, 0 
-EPS: 
-0, 0, 0, 0 
-Bacterial Clusters: 
-0, 1 
-EPS Clusters: 
-0, 1 
+2 <br>
+72 -3.0, 3.0 <br>
+7.594131728146498 <br>
+0.0 <br>
+0.0 <br>
+Bacteria: <br>
+0, -3, 3, -0.6628665521644692, 0.7487375601781903, 7.594131728146498, 0 <br>
+EPS: <br>
+0, 0, 0, 0 <br>
+Bacterial Clusters: <br>
+0, 1 <br>
+EPS Clusters: <br>
+0, 1 <br>
  
-3 
-108 -3.0, 3.0 
-7.1718264127284606 
-0.0 
-0.9953379953379954 
-Bacteria: 
-0, -74, 4, -0.6628665521644692, 0.7487375601781903, 7.256993321505826, 0 
-1, 68, 2, 0.6869828175375697, -0.7266736601860164, 7.086659503951095, 0 
-EPS: 
-0, 0, 0, 0 
-1, -1, 3, 0 
-Bacterial Clusters: 
-0, 1 
-1, 1 
-EPS Clusters: 
-0, 2
+3 <br>
+108 -3.0, 3.0 <br>
+7.1718264127284606 <br>
+0.0 <br>
+0.9953379953379954 <br>
+Bacteria: <br>
+0, -74, 4, -0.6628665521644692, 0.7487375601781903, 7.256993321505826, 0 <br>
+1, 68, 2, 0.6869828175375697, -0.7266736601860164, 7.086659503951095, 0 <br>
+EPS: <br>
+0, 0, 0, 0 <br>
+1, -1, 3, 0 <br>
+Bacterial Clusters: <br>
+0, 1 <br>
+1, 1 <br>
+EPS Clusters: <br>
+0, 2 <br>
