@@ -1,9 +1,9 @@
 ## Contributors & Work Breakdown
-**Ruth Rudolph (Project Leader)**: Lead developer for the **Visualization Module**. Implemented the GUI playback suite, custom render components (`PaintComponent`), simulation parsing logic, and dynamic cluster-color formatting algorithms.
-**Sonali Naidoo**: Lead developer for the **Graphing Module**. Developed Python analytics scripts, UI layouts, module unit testing, and simulation verification algorithms.
-**Byron Clarke**: Lead developer for the **Simulation Module**. Built the core multithreaded backend framework, coordinate space matrices, and backend performance profiling.
+**Ruth Rudolph (Project Leader)**: Lead developer for the **Visualization Module**. Implemented the GUI playback suite, custom render components (`PaintComponent`), simulation parsing logic, and dynamic cluster-color formatting algorithms. <br>
+**Sonali Naidoo**: Lead developer for the **Graphing Module**. Developed Python analytics scripts, UI layouts, module unit testing, and simulation verification algorithms.<br>
+**Byron Clarke**: Lead developer for the **Simulation Module**. Built the core multithreaded backend framework, coordinate space matrices, and backend performance profiling.<br>
 
-## **Abstract:** 
+## **Abstract:**  <br>
 The project outlined below consists of a multithreaded Java program which simulates early
 stage biofilm formation. The system models a growing colony of rod-shaped bacteria with the 
 ability to move, reproduce, secrete extracellular polymeric substances (EPS), and take in 
@@ -40,50 +40,49 @@ dental plaque, and they frequently colonize medical implants—leading to severe
 complications and increased treatment costs. In industry, biofilms contribute to food 
 contamination, reduce equipment lifespan, and create inefficiencies in water treatment 
 systems. As such, this project may be valuable to both academic and applied research 
-communities seeking insight into early-stage biofilm formation. 
+communities seeking insight into early-stage biofilm formation. <br>
 Our approach was primarily an evolutionary prototype driven approach. We did an initial 
 analysis and design of our project in the first few weeks and then would iteratively create and 
 test prototypes with additional features on each cycle. These cycles were asynchronous, and 
 not formally implemented, hence this is something between a waterfall-based approach and a 
 proper agile approach, since there was only one main analysis and design window, but many 
-iterations of the project. 
+iterations of the project. <br>
 This simulation was designed to mimic the paper Bera et al. (2023) Our aim was to reproduce 
 their results by following their methods. Another of the aims is to determine if their results 
 are correct for the methods they provided. They did not have a code review in their paper, 
 which is the primary reason it is not trivial to replicate. Their methods also were often 
 ambiguous and did not fully explain many aspects of the calculations and implementations 
 they used in their paper. Regardless this is important as we did not need to research the topic 
-in detail to construct our model’s design. 
+in detail to construct our model’s design. <br>
 
-## **Appendix A: User manual**
-## **Makefile:** 
+## **Appendix A: User manual**<br>
+## **Makefile:** <br>
 There is a makefile that can run any of the 3 modules. The commands for each module are 
-described in their separate sections. 
+described in their separate sections. <br>
 
-## **Using the Simulation:**
+## **Using the Simulation:**<br>
 The simulation is the main set of calculations within the program. This Simulates the growth 
 of a bacterial colony with a biofilm starting with a single bacterium inoculated at the centre of 
-the simulation grid.  
+the simulation grid.  <br>
 To run the simulation, you need a configuration file. A sample file: “SimulationConfig.txt” is 
-given. 
-There are 3 ways to run the simulation: - - - 
+given. <br>
+There are 3 ways to run the simulation:
 Makefile (recommended method): run ‘make all’ to compile all files, then 
-Use the command format 
+Use the command format
 <make run ARGS="simulationConfig.txt simulation_output.txt"> 
 Swap out simulationConfig.txt for your input file, and simulation_output.txt for your 
 output file. You can also just use “make run” which will use the 2 files stated above as 
-defaults. 
+defaults. <br>
 Command line: after running ‘make’ you can use 
 “java -cp bin Simulation.Simulation” instead of the makefile. This method does not 
-let you choose your input and output files, however. 
+let you choose your input and output files, however. <br>
 IDE (not recommended): If you open the simulation in your IDE, make sure your 
 terminal is in the ‘biofilm-main’ directory. Then you can run the main method of 
 Simulation.java, and it will use simulationConfig.txt as its input, so you will need to 
-edit that if you use this method. 
+edit that if you use this method. <br>
 The full file format is below. The only simulation parameters worth changing in a practical 
 scenario are: maxAgents, Motility, and the ElasticModuluses. Others can be changed for 
-testing purposes when using the program too. 
-Here is the format, and an example (This is also in the files with the code): 
+testing purposes when using the program too. <br>
 
 ### **Format:**<br>
 (the words before a ‘#’ are the names for the values, the words after a ‘#’ are comments about 
