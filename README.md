@@ -114,8 +114,7 @@ bacteria_lmax #float, maximum length of a bacterial cell in um (recommended: 5) 
 bacteria_diameter #float, diameter of bacteria in um (recommended: 1) <br>
 bacteria_motility #float, motility force of bacteria in Pa*um^2 (recommended: 0 - 1100) <br>
 bacteria_growth_rate #float, bacteria growth rate in um/hr (recommended: ~3.5) <br>
-bacteria_reproduction_rate #float, bacteria reproduction rate, in bacteria/hr (recommended: 
-1) <br>
+bacteria_reproduction_rate #float, bacteria reproduction rate, in bacteria/hr (recommended: 1) <br>
 bacteria_EPS_production_rate #float, EPS production rate, in EPS/hr (recommended: 1) <br>
 Bacteria_EPS_Elastic_Modulus #float, constant that increases repulsive forces between an 
 EPS and a Bacteria, in Pa (recommended: 20000 - 70000) <br>
