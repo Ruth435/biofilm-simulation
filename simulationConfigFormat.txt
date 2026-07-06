@@ -1,0 +1,29 @@
+origin_x, origin_y #int, int: starting position of the first bacterium (reccomended: 0, 0)
+
+#simulation values
+max_agents #int: max number of particles – the simulation stops once this is reached (reccomended: 10000 - 100000)
+output_interval #int: how often (in in-simulation hours) output is sent to the output file (reccomended: 0.1)
+
+#medium values
+simulation_boundary #int, distance from (0;0) to the edge of the simulation grid – make this big enough that no particle reaches the edge ideally (reccomended: 100-1000)
+initial_nutrient_concentration #float, starting nutrients per um^2. (reccomended: ~10)
+consumption_rate #float, rate that a bacteria consumes nutrients (reccomended: ~4)
+diffusion_rate #float, rate that nutrients diffuse to nearby gridsquares (reccomended: ~300)
+
+#EPS values
+EPS_size #float, diameter of EPS in um (reccomended: 0.5 - 1)
+EPS_EPS_Elastic_Modulus #float, constant that increases repulsive forces between 2 EPS, in Pa (reccomended: 20000 - 70000)
+
+#bacteria values
+bacteria_lmax #float, maximum length of a bacterial cell in um (reccomended: 5)
+bacteria_diameter #float, diameter of bacteria in um (reccomended: 1)
+bacteria_motility #float, motility force of bacteria in Pa*um^2 (reccomended: 0 - 1100)
+bacteria_growth_rate #float, bacteria growth rate in um/hr (reccomended: ~3.5)
+bacteria_reproduction_rate #float, bacteria reproduction rate, in bacteria/hr (reccomended: 1)
+bacteria_EPS_production_rate #float, EPS production rate, in EPS/hr (reccomended: 1)
+Bacteria_EPS_Elastic_Modulus #float, constant that increases repulsive forces between an EPS and a Bacteria, in Pa (reccomended: 20000 - 70000)
+
+Bacteria_Bacteria_Elastic_Modulus #float, constant that increases repulsive forces between 2 Bacteria, in Pa (reccomended: 20000 - 70000)
+Friction #float, constant that decreases all movement (reccomended: 200)
+EPS_Production_Min_Cell_Density #minimum bacteria density required to produce EPS, in um^2 of bacteria/um^2 (reccomended: 5)
+EPS_Production_Max_EPS_Density #maximum eps density before bacteria stop producing eps, in um^2 of eps/um^2 (reccomended: 0.3)
